@@ -1,0 +1,28 @@
+<c-container>
+  <c-row ngPreserveWhitespaces *ngFor="let item of menu.categories">
+    <c-accordion [alwaysOpen]="true">
+      <c-accordion-item #item="cAccordionItem" [visible]="true">
+        <c-row>
+          <c-col [lg]="4" *ngFor="let menuItem of item.items">
+            <c-card class="mb-3" [ngStyle]="{'max-width.px': 540}">
+              <c-row class="g-0">
+                <c-col [md]="4">
+                  <img [cCardImg] src="{{menuItem.image}}">
+                </c-col>
+                <c-card-body cCol [md]="8">
+                  <h5 cCardTitle>{{menuItem.name}}</h5>
+                  <p cCardText>
+                    {{menuItem.description}}
+                  </p>
+                  <p cCardText>
+                    <small class="text-medium-emphasis">{{menuItem.price | currency}}</small>
+                  </p>
+                </c-card-body>
+              </c-row>
+            </c-card>
+          </c-col>
+        </c-row>
+      </c-accordion-item>
+    </c-accordion>
+  </c-row>
+</c-container>
